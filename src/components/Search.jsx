@@ -10,7 +10,7 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <div className="flex justify-center rounded-[26px] sm:rounded-[36px] items-center bg-[#F6F6F6] max-w-full sm:max-w-[85%] sm:max-w-sm mt-20 sm:mt-4 md:mt-0 shadow-[4px__4px_12px_1px_rgba(0,0,0,0.25)] sm:py-20]">
+    <div className="flex justify-center rounded-[26px] sm:rounded-[36px] items-center bg-[#F6F6F6] w-[85vw] sm:w-[60vw] md:w-[40vw] lg:w-[35vw] mt-20 sm:mt-4 md:mt-0 shadow-[4px__4px_12px_1px_rgba(0,0,0,0.25)] sm:py-20]">
       <img
         src={searchIcon}
         alt="search-icon"

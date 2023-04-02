@@ -8,8 +8,6 @@ import Sidebar from "../../components/Sidebar";
 
 function Ubah() {
   document.title = "Ubah Wisata";
-  const user = localStorage.getItem("user");
-  const username = user.replace(/[0-9]/gi, "");
 
   const navigate = useNavigate();
   const [buttonStatus, setButtonStatus] = useState("Update Data");
@@ -22,15 +20,20 @@ function Ubah() {
   const [photo, setPhoto] = useState("");
   const [img, setImg] = useState(null);
   const [loading, setLoading] = useState("");
+  const [userName, setUserName] = useState('');
 
   const handleInputImg = (e) => {
     const file = e.target.files[0];
-    if (file.type === "image/png" || file.type === "image/jpeg" || file.type === "image/jpg") {
-      if (file.size <= 200000) {
+    if (
+      file.type === "image/png" ||
+      file.type === "image/jpeg" ||
+      file.type === "image/jpg"
+    ) {
+      if (file.size <= 3000000) {
         setImg(URL.createObjectURL(file));
         setPhoto(file);
       } else {
-        alert("Ukuran file harus dibawah 2 MB!");
+        alert("Ukuran file harus dibawah 3 MB!");
       }
     } else {
       alert("Format file harus berformat = png/jpeg/jpg !");
@@ -40,8 +43,11 @@ function Ubah() {
   useEffect(() => {
     const checkUserToken = () => {
       const userToken = localStorage.getItem("token");
-      if (!userToken || userToken === "undefined") {
+      const user = localStorage.getItem("user");
+      if (!userToken || (userToken === "undefined" && !user) || user === "") {
         return navigate("/");
+      } else {
+        return setUserName(user.replace(/[0-9]/gi, ""));
       }
     };
     checkUserToken();
@@ -165,16 +171,16 @@ function Ubah() {
         </>
       ) : (
         <>
-          <nav className="fixed top-0 flex justify-between items-center bg-white px-5 h-[55px] w-full shadow-[4px__4px_12px_1px_rgba(0,0,0,0.25)] sm:hidden">
+          <nav className="fixed top-0 flex justify-between items-center bg-white px-5 h-[65px] w-full shadow-[4px__4px_12px_1px_rgba(0,0,0,0.25)] sm:hidden">
             <Link to={"/dashboard/tabel"}>
               <img src={arrowIcon} className="w-3" />
             </Link>
-            <h1 className="font-bold text-sm">Hai, {username.toUpperCase()}</h1>
+            <h1 className="font-bold text-sm capitalize">Hai, {userName}</h1>
           </nav>
         <Sidebar className={'hidden'}/>
           <div className="flex flex-col sm:justify-around md:items-center sm:items-center justify-center items-center">
-            <form className="w-[90%] sm:w-[70%] md:w-full flex flex-col md:flex-row md:justify-around lg:justify-evenly md:items-center md:h-[85vh] gap-y-2 md:mt-10 mt-20 sm:mt-[15px]" onSubmit={handleSubmit}>
-              <div className="flex flex-col justify-center gap-y-2 md:gap-y-10">
+            <form className="w-[90%] sm:w-[75vw] flex flex-col md:flex-row md:justify-around md:gap-x-20 lg:justify-evenly md:items-center md:h-[65vh] gap-y-7 md:mt-20 mt-20 sm:mt-[15px]" onSubmit={handleSubmit}>
+              <div className="flex flex-col justify-center gap-y-7 md:gap-y-[50px] lg:gap-y-[60px]">
                 <h1 className="font-bold text-xl md:text-3xl lg:text-2xl text-[#6889FF]">Ubah Wisata</h1>
                 <Input type="text" className="py-3"
                 placeholder="Masukkan Nama Wisata" value={name} onChange={(e) => setName(e.target.value)} />
@@ -185,19 +191,19 @@ function Ubah() {
                 <Input type="text" className="py-3"
                 placeholder="Masukkan Kota" value={city} onChange={(e) => setCity(e.target.value)} />
               </div>
-              <div className="flex flex-col justify-around gap-y-2 md:gap-y-10 md:mt-[150px]">
+              <div className="flex flex-col justify-around gap-y-5 md:gap-y-[30px] md:mt-[180px]">
                 <Input type="text"
-                placeholder="Masukkan Alamat" className="py-4 md:py-[20px]" value={address} onChange={(e) => setAddress(e.target.value)} />
+                placeholder="Masukkan Alamat" className="py-[15px] md:py-[20px]" value={address} onChange={(e) => setAddress(e.target.value)} />
 
-                <label tabIndex={0} htmlFor="tambah" className="flex justify-center items-center cursor-pointer max-h-[287px] sm:max-h-[280px] sm:max-w-full w-full md:h-[180px] md:w-[300px] rounded-xl bg-[#F6F6F6]">
+                <label tabIndex={0} htmlFor="tambah" className="flex justify-center items-center cursor-pointer h-[40vh] sm:h-[50vh] sm:w-full md:h-[40vh] md:my-1 md:w-[35vw] w-full lg:h-[48vh] rounded-xl bg-[#F6F6F6]">
                   <div className="flex flex-col justify-center items-center opacity-100">
-                    <img src={img} className="rounded-md max-h-[287px] sm:w-[520px] sm:h-[280px] w-[650px] md:h-[180px]" />
+                    <img src={img} className="w-[100vw] h-[40vh] sm:w-[100vw] sm:h-[50vh] md:w-[35vw] md:h-[40vh] lg:h-[48vh] rounded-md" />
                     <input id="tambah" type="file" className="hidden" onChange={handleInputImg} />
                     <p className="text-sm sm:text-lg md:text-xl py-5 md:pt-10 hidden">Tambah Gambar</p>
                   </div>
                 </label>
-                <div className="mb-4 flex justify-center">
-                  <Button className="w-full py-2 md:w-[308px]" buttonStatus={buttonStatus} />
+                <div className="flex justify-center mb-5">
+                  <Button className="w-full md:w-[30vw] py-2" buttonStatus={buttonStatus} />
                 </div>
               </div>
             </form>

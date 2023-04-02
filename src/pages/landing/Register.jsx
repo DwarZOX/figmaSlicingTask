@@ -16,34 +16,30 @@ const Register = () => {
     const handleSubmit = (e) => {
       e.preventDefault()
 
-      if (email === '' || password === '' || name === '' || password_confirmation === '') {
-        alert('Inputan tidak boleh kosong!')
-        return false
-      }
 
-let data = new FormData();
-data.append("name", name);
-data.append("email", email);
-data.append("password", password);
-data.append('password_confirmation', password_confirmation);
+      let data = new FormData();
+      data.append("name", name);
+      data.append("email", email);
+      data.append("password", password);
+      data.append("password_confirmation", password_confirmation);
 
-let config = {
-  method: "post",
-  maxBodyLength: Infinity,
-  url: "/register",
-  headers: {},
-  data: data,
-};
+      let config = {
+        method: "post",
+        maxBodyLength: Infinity,
+        url: "/register",
+        headers: {},
+        data: data,
+      };
 
-instance
-  .request(config)
-  .then((response) => {
-    console.log(JSON.stringify(response.data));
-    navigate("/");
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+      instance
+        .request(config)
+        .then((response) => {
+          console.log(JSON.stringify(response.data));
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
 
     }
 

@@ -6,6 +6,7 @@ import LoadingCard from "../../components/LoadingCard";
 import Search from "../../components/Search";
 import Sidebar from "../../components/Sidebar";
 import { GrList } from "react-icons/gr";
+import Footer from "../../components/Footer";
 
 function Dashboard() {
   document.title = "Home";
@@ -76,15 +77,14 @@ function Dashboard() {
     const dataResult = data.filter((item) => {
       return item.name.toLowerCase().includes(resultSearch.toLowerCase());
     });
-    console.log(dataResult);
     setSearchResult(dataResult);
   }, [data, resultSearch]);
 
   const renderCards = () => {
     if (searchResult.length > 0) {
       return searchResult.map((item) => (
-        <NavLink to={`/dashboard/detail/${item.id}`}>
-          <Card item={item} key={item.id} />
+        <NavLink to={`/dashboard/detail/${item.id}`} key={item.id}>
+          <Card item={item}/>
         </NavLink>
       ));
     } else {
@@ -128,9 +128,9 @@ function Dashboard() {
 
         <div
           id="wrap-card"
-          className="mx-3 my-10 flex flex-wrap justify-center gap-y-10 gap-x-10"
+          className="mx-3 my-10 flex flex-wrap justify-center gap-y-10 gap-x-10 w-[100vw]"
         >
-          <div className="flex sm:justify-evenly md:justify-between sm:w-[80%] items-center">
+          <div className="flex sm:justify-evenly md:justify-between items-center md:w-[78vw]">
             <div className="md:flex sm:hidden hidden">
               {!loading ? (
                 <h1 className="text-md font-bold capitalize">
@@ -144,10 +144,7 @@ function Dashboard() {
           </div>
           {loading ? <LoadingCard /> : renderCards()}
         </div>
-        <footer className="w-full bg-[#6889FF] h-20 flex justify-center items-center flex-col text-white text-sm">
-          <p>Footer Component</p>
-          <p>Copyright 2023 All right reserved</p>
-        </footer>
+        <Footer />
       </div>
     </div>
   );

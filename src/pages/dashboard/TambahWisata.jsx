@@ -31,11 +31,11 @@ function TambahWisata() {
       file.type === "image/jpeg" ||
       file.type === "image/jpg"
     ) {
-      if (file.size <= 200000) {
+      if (file.size <= 3000000) {
         setImg(URL.createObjectURL(file));
         setPhoto(file);
       } else {
-        alert("Ukuran file harus dibawah 2 MB!");
+        alert("Ukuran file harus dibawah 3 MB!");
       }
     } else {
       alert("Format file harus berformat = png/jpeg/jpg !");
@@ -207,16 +207,16 @@ function TambahWisata() {
           <div
             className="flex flex-col sm:justify-around md:items-center justify-center items-center sm:items-center"
           >
-            <form className="w-[90%] sm:w-[70%] md:w-full flex flex-col md:flex-row md:justify-around lg:justify-evenly md:items-center md:h-[85vh] gap-y-7 md:mt-10 mt-20 sm:mt-[15px]"
+            <form className="w-[90%] sm:w-[75vw] flex flex-col md:flex-row md:justify-around md:gap-x-20 lg:justify-evenly md:items-center md:h-[65vh] gap-y-7 md:mt-20 mt-20 sm:mt-[15px]"
             onSubmit={handleSubmit}>
-        <div className="flex flex-col justify-center gap-y-7">
+        <div className="flex flex-col justify-center gap-y-7 md:gap-y-[50px] lg:gap-y-[60px]">
               <h1 className="font-bold text-xl md:text-3xl text-[#6889FF] lg:text-2xl">
                 Tambah Wisata
               </h1>
               <Input
                 type="text"
                 placeholder="Masukkan Nama Wisata"
-                className="lg:py-3"
+                className="py-3"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -225,23 +225,23 @@ function TambahWisata() {
                 placeholder="Masukkan Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="border-none"
+                className="py-3"
               />
               <Input
                 type="number"
                 placeholder="Masukkan No.Telephone"
-                className="border-none"
+                className="py-3"
                 value={telephone}
                 onChange={(e) => setTelephone(e.target.value)}
               />
               <Input
                 type="text"
                 placeholder="Masukkan Kota"
-                className="border-none"
+                className="py-3"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
               /></div>
-            <div className="flex flex-col justify-around gap-y-5 md:mt-[150px]">
+            <div className="flex flex-col justify-around gap-y-5 md:gap-y-[30px] md:mt-[180px]">
               <Input
                 type="text"
                 placeholder="Masukkan Alamat"
@@ -252,12 +252,12 @@ function TambahWisata() {
 
               <label tabIndex={0}
                 htmlFor="tambah"
-                className="flex justify-center items-center cursor-pointer h-[287px] sm:h-[180px] sm:w-full md:h-[180px] md:w-full w-full rounded-xl bg-[#F6F6F6]"
+                className="flex justify-center items-center cursor-pointer h-[40vh] sm:h-[50vh] sm:w-full md:h-[40vh] md:my-1 md:w-[35vw] w-full lg:h-[48vh] rounded-xl bg-[#F6F6F6]"
               >
                 <div className="flex flex-col justify-center items-center opacity-100">
                   {img ? (
                     <>
-                      <img src={img} className="w-[470px] h-[287px] sm:w-[600px] sm:h-[200px] md:w-[310px] md:h-[180px] rounded-md" />
+                      <img src={img} className="w-[100vw] h-[40vh] sm:w-[100vw] sm:h-[50vh] md:w-[35vw] md:h-[40vh] lg:h-[48vh] rounded-md" />
                       <input
                         id="tambah"
                         type="file"
@@ -280,7 +280,7 @@ function TambahWisata() {
                 </div>
               </label>
               <div className="flex justify-center mb-5">
-                <Button className="w-full md:w-[308px] py-2" buttonStatus={buttonStatus} />
+                <Button className="w-full md:w-[30vw] py-2" buttonStatus={buttonStatus} />
               </div>
             </div>
             </form>
