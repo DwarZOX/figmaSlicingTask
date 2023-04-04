@@ -74,7 +74,7 @@ function Detail() {
                 <Link className="sm:flex sm:text-[10px] hidden" onClick={() => navigate(-1)}>
                   <img src={arrowIcon} />
                 </Link>
-                <h2 className="sm:ml-20 md:ml-20 lg:ml-20 text-xl sm:text-2xl font-bold">{item.name}</h2>
+                <h2 className="sm:ml-20 md:ml-20 lg:ml-20 text-xl sm:text-2xl font-bold capitalize">{item.name}</h2>
               </div>
               <img src={item.photo} className="rounded-lg h-[50%] w-[150vw] sm:h-[50%] sm:w-[100vw] md:w-[70vw] md:h-[50%]" />
               <span className="flex items-center text-md pt-3">

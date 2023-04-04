@@ -94,7 +94,7 @@ function TambahWisata() {
   const showSideBar = () => (isShow ? "" : "hidden");
 
   return (
-    <div className="w-full">
+    <>
       {loading ? (
         <>
           <div className="top-0 bg-black bg-opacity-40 w-full h-screen flex flex-col gap-y-10 justify-center items-center fixed z-10">
@@ -103,6 +103,7 @@ function TambahWisata() {
               Wait, Create Your Data..
             </p>
           </div>
+          
           <div
             className="flex flex-col sm:justify-around md:items-center justify-center items-center sm:items-center"
           >
@@ -287,7 +288,7 @@ function TambahWisata() {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 }
 

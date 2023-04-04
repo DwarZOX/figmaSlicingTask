@@ -99,9 +99,9 @@ function Dashboard() {
   };
   const showSideBar = () => (isShow ? "" : "hidden");
   return (
-    <div className="w-full">
+    <>
       <div className="flex flex-col justify-center items-center">
-        <nav className="fixed top-0 flex justify-between items-center bg-white px-5 h-[65px] w-full shadow-[4px__4px_12px_1px_rgba(0,0,0,0.25)] duration-700 transition delay-300 ease-in-out z-10 sm:hidden">
+        <nav className="fixed top-0 flex justify-between items-center bg-white px-5 h-[65px] w-full shadow-[4px__4px_12px_1px_rgba(0,0,0,0.25)] z-10 sm:hidden">
           <Link
             onClick={() => {
               setShowName(false);
@@ -134,7 +134,7 @@ function Dashboard() {
             <div className="md:flex sm:hidden hidden">
               {!loading ? (
                 <h1 className="text-md font-bold capitalize">
-                  Hai {userName} , {getGreeting()}.
+                  Hai {userName}! , {getGreeting()}.
                 </h1>
               ) : (
                 <div className="w-60 h-10 bg-gray-200 rounded-xl animate-pulse"></div>
@@ -146,7 +146,7 @@ function Dashboard() {
         </div>
         <Footer />
       </div>
-    </div>
+    </>
   );
 }
 

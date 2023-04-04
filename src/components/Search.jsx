@@ -25,7 +25,7 @@ const Search = ({ onSearch }) => {
         onInput={(e) => handleSearch(e)}
       />
       <button
-        className="bg-[#6889FF] rounded-[26px] sm:rounded-[36px] font-bold text-sm sm:text-xl text-white py-3 sm:py-3 px-8 sm:px-10 shadow-[-4px__4px_12px_1px_rgba(0,0,0,0.25)]"
+        className="bg-[#6889FF] rounded-[26px] sm:rounded-[36px] font-bold text-sm sm:text-xl text-white py-3 sm:py-3 px-8 sm:px-10 shadow-[-4px__4px_12px_1px_rgba(0,0,0,0.25)] hover:bg-[#3D62E5]"
         onClick={handleSearch}
       >
         Cari

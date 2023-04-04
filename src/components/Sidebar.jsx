@@ -24,13 +24,13 @@ function Sidebar({setShowName,setIsShow,className}) {
     isActive ? "text-[#0038FF] text-[2.5em]" : "text-black text-[2.5em]";
   return (
     <>
-    <div className='w-full'>
-        <nav className={`left-0 top-0 fixed bg-[#F6F6F6] w-[70%] h-full px-2 py-10 flex flex-col justify-between shadow-[4px__4px_12px_1px_rgba(0,0,0,0.25)] z-30 pl-6 z-20 sm:h-[70vh] md:h-[70vh] md:top-20 lg:top-20 lg:h-[75vh] sm:w-[4em] ${className} sm:flex sm:top-20 sm:py-10 sm:rounded sm:items-center sm:px-0`}>
+    <div className='h-full'>
+        <aside className={`left-0 top-0 fixed bg-[#F6F6F6] w-[60%] h-full px-2 py-10 flex flex-col justify-between shadow-[4px__4px_12px_1px_rgba(0,0,0,0.25)] z-30 pl-6 z-20 sm:h-[70vh] md:h-[70vh] md:top-20 lg:top-20 lg:h-[75vh] sm:w-[4em] ${className} sm:flex sm:top-20 sm:py-10 sm:rounded-r-xl sm:items-center sm:px-0`}>
           <div className="flex flex-col justify-center gap-10">
-          <h1 className='font-bold text-2xl capitalize sm:hidden'>Hai, {userName}</h1>
+          <h1 className='font-bold text-2xl capitalize sm:hidden'>Hai, {userName}!</h1>
             <NavLink className={active} to={`/dashboard/home`}>
               <span className='flex gap-x-2'>
-              <i className='text-[.8em] sm:text-[.7em]'>
+              <i className='text-[.8em] sm:text-[.7em] hover:text-white hover:bg-[lightgray] hover:rounded-lg sm:p-2'>
                 <AiOutlineHome />
               </i>
               <p className='text-[.5em] sm:hidden'>Beranda</p></span>
@@ -38,7 +38,7 @@ function Sidebar({setShowName,setIsShow,className}) {
 
             <NavLink className={active} to={`/dashboard/tabel`}>
               <span className='flex gap-x-2'>
-              <i className='text-[.7em] sm:text-[.6em]'>
+              <i className='text-[.7em] sm:text-[.6em] hover:text-white hover:bg-[lightgray] hover:rounded-lg sm:p-2'>
                 <BsClipboardMinus />
               </i>
               <p className='text-[.5em] ml-1 sm:hidden'>Tabel</p></span>
@@ -46,7 +46,7 @@ function Sidebar({setShowName,setIsShow,className}) {
 
             <NavLink className={active} to={`/dashboard/tambahwisata`}>
               <span className='flex gap-x-2'>
-              <i className='text-[.7em]'>
+              <i className='text-[.7em] hover:text-white hover:bg-[lightgray] hover:rounded-lg sm:p-2'>
                 <TbPlaylistAdd />
               </i>
               <p className='text-[.5em] ml-1 sm:hidden'>Tambah</p></span>
@@ -60,12 +60,12 @@ function Sidebar({setShowName,setIsShow,className}) {
               setIsShow(false)
               }}>
           <span className='flex gap-x-2'>
-              <i className='text-[1.7em] sm:text-[1.4em]'>
+              <i className='text-[1.7em] sm:text-[1.4em] hover:text-white hover:bg-[lightgray] hover:rounded-lg sm:p-2'>
             <FiLogOut />
               </i>
               <p className='text-[1.1em] sm:hidden'>Logout</p></span>
           </NavLink>
-        </nav>
+        </aside>
         <div className={`w-full h-screen bg-black opacity-30 sm:hidden fixed z-20 ${className}`} onClick={()=>{
           setShowName(true)
           setIsShow(false)}}></div>
@@ -73,7 +73,7 @@ function Sidebar({setShowName,setIsShow,className}) {
       {logout ? (
         <div className="top-0 bg-black bg-opacity-50 w-full h-screen flex justify-center items-center fixed z-50">
           <div className="w-60 sm:w-80 bg-white flex flex-col items-center justify-around rounded-xl relative py-5 sm:py-7 lg:py-10 lg:w-[36%] sm:gap-y-8 lg:gap-y-20 gap-y-5">
-            <span className="absolute top-[-8px] sm:top-[-7px] lg:top-[-10px] right-[1px] text-2xl lg:text-5xl text-[#515151]">
+            <span className="absolute top-[-8px] sm:top-[-7px] lg:top-[-10px] right-[1px] text-2xl lg:text-5xl text-[#515151] hover:text-[lightgray]">
               <Link onClick={() => setLoggout(false)}>&times;</Link>
             </span>
             <h2 className="text-[#6889FF] font-bold text-md sm:text-xl lg:text-2xl">
@@ -81,7 +81,7 @@ function Sidebar({setShowName,setIsShow,className}) {
             </h2>
             <div className="flex justify-between gap-10">
               <Link onClick={() => setLoggout(false)}>
-                <button className="bg-[#F6F6F6] text-[.8em] sm:text-[1em] rounded-md p-2 sm:px-4 sm:py-3 lg:text-xl lg:rounded-[12px] lg:py-[19px] lg:px-[24px]">
+                <button className="bg-[#F6F6F6] text-[.8em] sm:text-[1em] rounded-md p-2 sm:px-4 sm:py-3 lg:text-xl lg:rounded-[12px] lg:py-[19px] lg:px-[24px] hover:bg-[lightgray]">
                   Batal
                 </button>
               </Link>
@@ -92,7 +92,7 @@ function Sidebar({setShowName,setIsShow,className}) {
                   localStorage.removeItem("user");
                 }}
               >
-                <button className="bg-[#6889FF] text-[.8em] sm:text-[1em] rounded-md p-2 sm:px-4 sm:py-3 lg:text-xl lg:rounded-[12px] lg:py-[19px] lg:px-[24px] text-white">
+                <button className="bg-[#6889FF] text-[.8em] sm:text-[1em] rounded-md p-2 sm:px-4 sm:py-3 lg:text-xl lg:rounded-[12px] lg:py-[19px] lg:px-[24px] text-white hover:bg-[#3D62E5]">
                   Logout
                 </button>
               </Link>

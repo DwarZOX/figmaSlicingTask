@@ -129,7 +129,7 @@ function Ubah() {
       });
   };
   return (
-    <div className="w-full h-screen">
+    <>
       {loading ? (
         <>
           <div className="top-0 bg-black bg-opacity-40 w-full h-screen flex flex-col gap-y-10 justify-center items-center fixed z-10">
@@ -210,7 +210,7 @@ function Ubah() {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 }
 

@@ -12,7 +12,7 @@ import NotFound from './pages/not-found'
 
 function App() {
   return (
-    <div className="w-full h-screen">
+    <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -25,7 +25,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 
