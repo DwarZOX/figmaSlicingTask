@@ -94,7 +94,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             setPassword
           />
-          <span className="pr-4 text-3xl" onClick={()=>setEye(!eye)}>{eye ? (<AiOutlineEye />) : (<AiOutlineEyeInvisible />)}</span>
+          <span className="pr-4 text-3xl" onClick={()=>setEye(!eye)}>{eye ? (<AiOutlineEyeInvisible />) : (<AiOutlineEye />)}</span>
           </div>
           <Button
             type="submit"
