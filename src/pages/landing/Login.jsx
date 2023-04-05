@@ -4,6 +4,7 @@ import Input from "../../components/Input";
 import { useEffect, useState } from "react";
 import instance from "../../api/api";
 import Checkbox from "../../components/Checkbox";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 function Login() {
   document.title = "Login Page";
@@ -11,6 +12,7 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [eye, setEye] = useState(true)
   const [rememberMe, setRememberMe] = useState(false);
 
   useEffect(() => {
@@ -60,7 +62,6 @@ function Login() {
           localStorage.removeItem("email");
           localStorage.removeItem("password");
         }
-        console.log('ini respon status',response.status)
       })
       .catch((error) => {
         console.log(error);
@@ -84,14 +85,17 @@ function Login() {
             className={" py-4 px-7 text-md"}
             onChange={(e) => setEmail(e.target.value)}
           />
+          <div className="inline-flex justify-between items-center bg-[#F7F7F7]">
           <Input
-            type="password"
+            type={eye?"text":"password"}
             placeholder="Masukkan Password"
             value={password}
-            className={" py-4 px-7 text-md"}
+            className={"w-[80%] py-4 px-7 text-md"}
             onChange={(e) => setPassword(e.target.value)}
             setPassword
           />
+          <span className="pr-4 text-3xl" onClick={()=>setEye(!eye)}>{eye ? (<AiOutlineEye />) : (<AiOutlineEyeInvisible />)}</span>
+          </div>
           <Button
             type="submit"
             buttonStatus={"Login"}
