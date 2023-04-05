@@ -12,7 +12,7 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [eye, setEye] = useState(true)
+  const [eye, setEye] = useState(false)
   const [rememberMe, setRememberMe] = useState(false);
 
   useEffect(() => {
