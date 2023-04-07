@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import Button from '../../components/Button'
 import Input from '../../components/Input'
@@ -47,39 +47,39 @@ const Register = () => {
     <div className="w-full h-screen flex justify-center items-center">
       <div className="flex flex-col justify-center items-center border-2 rounded-xl shadow-[4px__4px_12px_1px_rgba(0,0,0,0.25)]">
         <div className="my-10">
-          <h1 className="text-3xl font-bold text-[#6889FF] leading">
+          <h1 className="text-4xl font-bold text-[#6889FF] leading">
             Register
           </h1>
         </div>
 
-        <form className="flex flex-col px-6 gap-5" onSubmit={handleSubmit}>
+        <form className="flex flex-col px-7 gap-5" onSubmit={handleSubmit}>
           <Input
             type="text"
             placeholder="Masukkan Nama"
-            value={name} className={' py-3 px-7 text-sm'}
+            value={name} className={' py-4 px-7 text-md'}
             onChange={(e) => setName(e.target.value)}
           />
           <Input
             type="email"
             placeholder="Masukkan Email"
-            value={email} className={' py-3 px-7 text-sm'}
+            value={email} className={' py-4 px-7 text-md'}
             onChange={(e) => setEmail(e.target.value)}
           />
           <Input
             type="password"
             placeholder="Masukkan Password"
-            value={password} className={' py-3 px-7 text-sm'}
+            value={password} className={' py-4 px-7 text-md'}
             onChange={(e) => setPassword(e.target.value)}
           />
           <Input
             type="password"
             placeholder="Konfirmasi Password"
-            value={password_confirmation} className={' py-3 px-7 text-sm'}
+            value={password_confirmation} className={' py-4 px-7 text-md'}
             onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
-          <Button type="submit" buttonStatus={"Register"} className={' py-3 px-7 text-sm'} />
+          <Button type="submit" buttonStatus={"Register"} className={'p-4 px-7 text-lg'} />
         </form>
-        <p className="my-6 text-sm">
+        <p className="my-6">
           Sudah memiliki akun,
           <span className="text-[#0038FF]">
             <Link to={"/"}> Login</Link>

@@ -71,35 +71,35 @@ function Login() {
   return (
     <div className="w-full h-screen flex justify-center items-center">
       <div className="flex flex-col justify-center items-center border-2 rounded-xl shadow-[4px__4px_12px_1px_rgba(0,0,0,0.25)]">
-        <div className="my-10">
-          <h1 className="text-4xl sm:text-4xl font-bold text-[#6889FF] leading">
+        <div className="my-20 mt-[100px]">
+          <h1 className="text-4xl font-bold text-[#6889FF] leading">
             Login
           </h1>
         </div>
 
-        <form className="flex flex-col px-6 gap-7" onSubmit={handleSubmit}>
+        <form className="flex flex-col px-7 gap-5" onSubmit={handleSubmit}>
           <Input
             type="email"
             placeholder="Masukkan Email"
             value={email}
-            className={" py-4 px-7 text-md"}
+            className={" py-4 7px-7 text-md"}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <div className="inline-flex justify-between items-center bg-[#F7F7F7]">
+          <div className="inline-flex justify-between items-center rounded-lg bg-[#F7F7F7]">
           <Input
             type={eye?"text":"password"}
             placeholder="Masukkan Password"
             value={password}
-            className={"w-[80%] py-4 px-7 text-md"}
+            className={"w-[80%] py-4 7px-7 text-md"}
             onChange={(e) => setPassword(e.target.value)}
             setPassword
           />
-          <span className="pr-4 text-3xl" onClick={()=>setEye(!eye)}>{eye ? (<AiOutlineEye />) : (<AiOutlineEyeInvisible />)}</span>
+          <span className="pr-4 text-3xl text-[#6889FF] cursor-pointer" onClick={()=>setEye(!eye)}>{eye ? (<AiOutlineEye />) : (<AiOutlineEyeInvisible />)}</span>
           </div>
           <Button
             type="submit"
             buttonStatus={"Login"}
-            className={" py-4 px-7 text-md"}
+            className={" py-4 7px-7 text-lg"}
           />
           <Checkbox
             rememberMe={rememberMe}

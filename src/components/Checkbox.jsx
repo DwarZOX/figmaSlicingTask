@@ -1,6 +1,6 @@
 function Checkbox({ rememberMe, handleRememberMe }) {
   return (
-    <label tabIndex={0}  htmlFor="reminder" className="mt-[-25px] pl-5">
+    <label tabIndex={0}  htmlFor="reminder" className="mt-[-15px] pl-5 cursor-pointer">
       <input
         type="checkbox"
         name="reminder"

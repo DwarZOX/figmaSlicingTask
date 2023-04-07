@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { AiOutlineHome } from "react-icons/ai";
+import { RiHome5Line } from "react-icons/ri";
 import { BsClipboardMinus } from "react-icons/bs";
-import { TbPlaylistAdd } from "react-icons/tb";
+import { BsPlusSquare } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
 
 function Sidebar({setShowName,setIsShow,className}) {
@@ -21,35 +21,35 @@ function Sidebar({setShowName,setIsShow,className}) {
     },[])
   const [logout, setLoggout] = useState(false);
   const active = ({ isActive }) =>
-    isActive ? "text-[#0038FF] text-[2.5em]" : "text-black text-[2.5em]";
+    isActive ? "text-[#0038FF] text-[2.7em]" : "text-black text-[2.7em]";
   return (
     <>
     <div className='h-full'>
-        <aside className={`left-0 top-0 fixed bg-[#F6F6F6] w-[60%] h-full px-2 py-10 flex flex-col justify-between shadow-[4px__4px_12px_1px_rgba(0,0,0,0.25)] z-30 pl-6 z-20 sm:h-[70vh] md:h-[70vh] md:top-20 lg:top-20 lg:h-[75vh] sm:w-[4em] ${className} sm:flex sm:top-20 sm:py-10 sm:rounded-r-xl sm:items-center sm:px-0`}>
-          <div className="flex flex-col justify-center gap-10">
-          <h1 className='font-bold text-2xl capitalize sm:hidden'>Hai, {userName}!</h1>
+        <aside className={`left-0 fixed bg-[#F6F6F6] w-[60%] h-full px-2 py-10 flex flex-col justify-between shadow-[4px__4px_12px_1px_rgba(0,0,0,0.25)] sm:shadow-[3px__3px_3px_0px_rgba(0,0,0,0.35)] z-30 pl-6 z-20 sm:h-[70vh] md:h-[60vh] md:translate-y-[20%] lg:translate-y-0 lg:h-[75vh] sm:w-[4em] ${className} sm:flex sm:top-20 sm:py-10 sm:rounded-r-xl sm:items-center sm:px-0`}>
+          <div className="flex flex-col justify-center gap-10 sm:gap-5">
+          <h1 className='font-[700] text-2xl my-3 capitalize sm:hidden'>Hai, {userName}!</h1>
             <NavLink className={active} to={`/dashboard/home`}>
-              <span className='flex gap-x-2'>
-              <i className='text-[.8em] sm:text-[.7em] hover:text-white hover:bg-[lightgray] hover:rounded-lg sm:p-2'>
-                <AiOutlineHome />
+              <span className='flex gap-x-4'>
+              <i className='text-[33px] sm:text-[.7em] hover:text-white hover:bg-[lightgray] hover:rounded-lg sm:p-2'>
+                <RiHome5Line />
               </i>
-              <p className='text-[.5em] sm:hidden'>Beranda</p></span>
+              <p className='text-[20px] sm:hidden'>Beranda</p></span>
             </NavLink>
 
             <NavLink className={active} to={`/dashboard/tabel`}>
-              <span className='flex gap-x-2'>
-              <i className='text-[.7em] sm:text-[.6em] hover:text-white hover:bg-[lightgray] hover:rounded-lg sm:p-2'>
+              <span className='flex gap-x-4'>
+              <i className='text-[29px] sm:text-[26px] hover:text-white hover:bg-[lightgray] hover:rounded-lg pl-[2px] sm:p-2'>
                 <BsClipboardMinus />
               </i>
-              <p className='text-[.5em] ml-1 sm:hidden'>Tabel</p></span>
+              <p className='text-[20px] ml-1 sm:hidden'>Tabel</p></span>
             </NavLink>
 
             <NavLink className={active} to={`/dashboard/tambahwisata`}>
-              <span className='flex gap-x-2'>
-              <i className='text-[.7em] hover:text-white hover:bg-[lightgray] hover:rounded-lg sm:p-2'>
-                <TbPlaylistAdd />
+              <span className='flex gap-x-4'>
+              <i className='text-[27px] sm:text-[25px] hover:text-white hover:bg-[lightgray] hover:rounded-lg pl-[2px] sm:p-2'>
+                <BsPlusSquare />
               </i>
-              <p className='text-[.5em] ml-1 sm:hidden'>Tambah</p></span>
+              <p className='text-[20px] ml-1 sm:hidden'>Tambah</p></span>
             </NavLink>
           </div>
         
@@ -59,29 +59,29 @@ function Sidebar({setShowName,setIsShow,className}) {
               setShowName(true)
               setIsShow(false)
               }}>
-          <span className='flex gap-x-2'>
-              <i className='text-[1.7em] sm:text-[1.4em] hover:text-white hover:bg-[lightgray] hover:rounded-lg sm:p-2'>
+          <span className='flex gap-x-4'>
+              <i className='text-[31px] sm:text-[1.6em] hover:text-white hover:bg-[lightgray] hover:rounded-lg sm:p-2'>
             <FiLogOut />
               </i>
-              <p className='text-[1.1em] sm:hidden'>Logout</p></span>
+              <p className='text-[20px] sm:hidden'>Keluar</p></span>
           </NavLink>
         </aside>
-        <div className={`w-full h-screen bg-black opacity-30 sm:hidden fixed z-20 ${className}`} onClick={()=>{
+        <div className={`w-full h-screen bg-black opacity-20 sm:hidden fixed z-20 ${className}`} onClick={()=>{
           setShowName(true)
           setIsShow(false)}}></div>
         </div>
       {logout ? (
         <div className="top-0 bg-black bg-opacity-50 w-full h-screen flex justify-center items-center fixed z-50">
-          <div className="w-60 sm:w-80 bg-white flex flex-col items-center justify-around rounded-xl relative py-5 sm:py-7 lg:py-10 lg:w-[36%] sm:gap-y-8 lg:gap-y-20 gap-y-5">
-            <span className="absolute top-[-8px] sm:top-[-7px] lg:top-[-10px] right-[1px] text-2xl lg:text-5xl text-[#515151] hover:text-[lightgray]">
+          <div className="w-[80%] sm:w-[70%] h-[40vw] sm:h-[30vh] lg:h-[350px] lg:w-[55%] bg-white flex flex-col items-center justify-end pt-[17px] rounded-lg md:rounded-xl relative py-5 gap-y-[9vw]">
+            <span className="absolute top-[-8px] sm:top-[-11px] lg:top-[-10px] right-[3px] text-3xl sm:text-4xl text-[#515151] hover:text-[lightgray]">
               <Link onClick={() => setLoggout(false)}>&times;</Link>
             </span>
-            <h2 className="text-[#6889FF] font-bold text-md sm:text-xl lg:text-2xl">
+            <h2 className="text-[#6889FF] font-bold text-[5vw] md:text-4xl">
               Anda yakin Ingin Logout?
             </h2>
-            <div className="flex justify-between gap-10">
+            <div className="flex justify-between gap-5">
               <Link onClick={() => setLoggout(false)}>
-                <button className="bg-[#F6F6F6] text-[.8em] sm:text-[1em] rounded-md p-2 sm:px-4 sm:py-3 lg:text-xl lg:rounded-[12px] lg:py-[19px] lg:px-[24px] hover:bg-[lightgray]">
+                <button className="bg-[#F6F6F6] text-[3vw] sm:text-[1.3em] rounded-md px-[4vw] py-[2vw] lg:text-xl lg:rounded-[12px] md:py-[17px] md:px-[34px] hover:bg-[lightgray]">
                   Batal
                 </button>
               </Link>
@@ -92,7 +92,7 @@ function Sidebar({setShowName,setIsShow,className}) {
                   localStorage.removeItem("user");
                 }}
               >
-                <button className="bg-[#6889FF] text-[.8em] sm:text-[1em] rounded-md p-2 sm:px-4 sm:py-3 lg:text-xl lg:rounded-[12px] lg:py-[19px] lg:px-[24px] text-white hover:bg-[#3D62E5]">
+                <button className="bg-[#6889FF] text-[3vw] sm:text-[1.3em] rounded-md px-[4vw] py-[2vw] lg:text-xl lg:rounded-[12px] md:py-[17px] md:px-[34px] text-white hover:bg-[#3D62E5]">
                   Logout
                 </button>
               </Link>

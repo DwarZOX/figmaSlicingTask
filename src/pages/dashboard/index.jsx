@@ -5,8 +5,8 @@ import Card from "../../components/Card";
 import LoadingCard from "../../components/LoadingCard";
 import Search from "../../components/Search";
 import Sidebar from "../../components/Sidebar";
-import { GrList } from "react-icons/gr";
 import Footer from "../../components/Footer";
+import { TbAlignJustified } from "react-icons/tb";
 
 function Dashboard() {
   document.title = "Home";
@@ -100,8 +100,8 @@ function Dashboard() {
   const showSideBar = () => (isShow ? "" : "hidden");
   return (
     <>
-      <div className="flex flex-col justify-center items-center">
-        <nav className="fixed top-0 flex justify-between items-center bg-white px-5 h-[65px] w-full shadow-[4px__4px_12px_1px_rgba(0,0,0,0.25)] z-10 sm:hidden">
+      <div className="flex flex-col justify-center items-center border-box">
+        <nav className="fixed top-0 flex justify-between items-center bg-white px-5 h-[65px] w-full shadow-[3px__3px_3px_0px_rgba(0,0,0,0.35)] z-10 sm:hidden">
           <Link
             onClick={() => {
               setShowName(false);
@@ -109,12 +109,12 @@ function Dashboard() {
             }}
           >
             <i className="text-4xl">
-              <GrList />
+              <TbAlignJustified />
             </i>
           </Link>
           {showName ? (
             !loading ? (
-              <h1 className="font-bold text-lg capitalize">Hai, {userName}</h1>
+              <h1 className="font-[700] text-xl capitalize">Hai, {userName}!</h1>
             ) : (
               <div className="w-20 h-8 bg-gray-200 rounded-xl animate-pulse"></div>
             )
@@ -128,7 +128,7 @@ function Dashboard() {
 
         <div
           id="wrap-card"
-          className="mx-3 my-10 flex flex-wrap justify-center gap-y-10 gap-x-10 w-[100vw]"
+          className="mx-3 my-10 flex flex-wrap justify-center gap-y-10 gap-x-10 w-[98vw]"
         >
           <div className="flex sm:justify-evenly md:justify-between items-center md:w-[78vw]">
             <div className="md:flex sm:hidden hidden">
