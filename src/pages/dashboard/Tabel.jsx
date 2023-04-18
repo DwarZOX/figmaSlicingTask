@@ -85,9 +85,8 @@ function Tabel() {
     <div>
       {isDelete && (
         <div className="top-0 bg-black bg-opacity-40 w-full h-screen flex flex-col gap-y-10 justify-center items-center fixed z-10">
-          <div className="w-[330px] h-[330px] border-[40px] border-t-black rounded-[50%] bg-transparent animate-spin"></div>
-          <p className="text-[50px] font-bold italic">Wait, Load Data..</p>
-        </div>
+        <div className="w-[100px] h-[100px] lg:w-[180px] lg:h-[180px] border-[10px] lg:border-[18px] border-t-black rounded-[50%] bg-transparent animate-spin"></div>
+      </div>
       )}
         <Sidebar
           setShowName={setShowName}

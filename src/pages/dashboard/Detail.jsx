@@ -69,8 +69,8 @@ function Detail() {
       <div className="flex flex-col justify-center items-center mt-[70px] mx-2 sm:mx-4 sm:mt-10">
         {loading ? (
           <div className="top-0 bg-black bg-opacity-40 w-full h-screen flex flex-col gap-y-10 justify-center items-center fixed z-10">
-            <div className="w-[100px] h-[100px] lg:w-[330px] lg:h-[330px] border-[10px] lg:border-[40px] border-t-black rounded-[50%] bg-transparent animate-spin"></div>
-          </div>
+          <div className="w-[100px] h-[100px] lg:w-[180px] lg:h-[180px] border-[10px] lg:border-[18px] border-t-black rounded-[50%] bg-transparent animate-spin"></div>
+        </div>
         ) : 
           data?.map((item) => (
             <main key={item.id} className="text-[22px] md:text-[24px] flex flex-col">

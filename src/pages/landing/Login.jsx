@@ -64,7 +64,8 @@ function Login() {
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error)
+        alert(`Mohon masukkan email atau password dengan benar!`)
       });
   };
 

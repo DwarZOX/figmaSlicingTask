@@ -133,7 +133,7 @@ function Dashboard() {
           <div className="flex sm:justify-evenly md:justify-between items-center md:w-[78vw]">
             <div className="md:flex sm:hidden hidden">
               {!loading ? (
-                <h1 className="text-md font-bold capitalize">
+                <h1 className="text-xl font-bold capitalize">
                   Hai {userName}! , {getGreeting()}.
                 </h1>
               ) : (
